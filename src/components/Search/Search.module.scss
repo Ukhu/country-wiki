@@ -1,0 +1,32 @@
+@import "../../sass/_mixins.scss";
+
+.Search {
+  display: flex;
+  height: 3.5rem;
+  width: 30rem;
+  background-color: #ffffff;
+  color: #848484;
+  font-size: 1.125rem;
+  border-radius: 4px;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+}
+
+.Search__icon {
+  @include justify-center;
+  background-color: inherit;
+  font-size: 18px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.Search__input {
+  flex-grow: 5;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  border: none;
+  padding: 0 1rem;
+  padding-left: 0;
+  border-radius: 0 4px 4px 0;
+}

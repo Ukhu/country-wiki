@@ -1,0 +1,27 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #111517;
+  height: 5rem;
+  padding: 0 2.5rem;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+}
+
+.Header__brand {
+  font-size: 24px;
+  margin: 0;
+}
+
+.Header__theme {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #111517;
+  font-weight: 600;
+}
+
+.Header__icon {
+  margin-right: 0.4rem;
+}

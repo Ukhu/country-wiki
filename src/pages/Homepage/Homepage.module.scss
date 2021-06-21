@@ -1,0 +1,7 @@
+@import "../../sass/mixins";
+
+.Homepage__toolbar {
+  @include justify-between;
+  margin: 0 2.5rem;
+  margin-top: 3rem;
+}
