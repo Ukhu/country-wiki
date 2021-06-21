@@ -5,16 +5,16 @@
   background-color: #ffffff;
   color: #111517;
   height: 5rem;
-  padding: 0 2.5rem;
+  padding: 0 5rem;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
 }
 
-.Header__brand {
+.Header__Brand {
   font-size: 24px;
   margin: 0;
 }
 
-.Header__theme {
+.Header__Theme {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +22,6 @@
   font-weight: 600;
 }
 
-.Header__icon {
+.Header__Icon {
   margin-right: 0.4rem;
 }

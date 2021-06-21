@@ -1,7 +1,15 @@
 @import "../../sass/mixins";
 
-.Homepage__toolbar {
+.Homepage__Toolbar {
   @include justify-between;
-  margin: 0 2.5rem;
+  margin: 0 5rem;
   margin-top: 3rem;
+}
+
+.Homepage__Countries {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 5rem;
+  margin-bottom: 3rem;
 }
