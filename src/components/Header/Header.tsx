@@ -21,7 +21,12 @@ const Header = () => {
     <header className={classes.Header}>
       <h1 className={classes.Header__Brand}>Where in the world?</h1>
 
-      <div className={classes.Header__Theme} onClick={toggleTheme}>
+      <div
+        className={classes.Header__Theme}
+        onClick={toggleTheme}
+        onKeyPress={toggleTheme}
+        tabIndex={0}
+      >
         {theme === "light" ? (
           <IoMoonOutline className={classes.Header__Icon} />
         ) : (
