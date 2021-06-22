@@ -1,0 +1,155 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
+@import "../../sass/_typography.scss";
+
+.CountryInfo {
+  color: $lm-text;
+}
+
+[data-theme="dark"] .CountryInfo {
+  color: $dm-text;
+}
+
+.CountryInfo__Main {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+
+  @media screen and (max-width: $mobile) {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 3.75rem;
+  }
+}
+
+.CountryInfo__BackBtn {
+  @include container;
+  @include input2;
+  @include justify-between;
+  margin-top: 5rem;
+  width: 8.5rem;
+  height: 2.5rem;
+  padding: 0 2.2rem;
+  background-color: inherit;
+  border: none;
+
+  @media screen and (max-width: $mobile) {
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+    border-radius: 2px;
+    width: 6.5rem;
+    height: 2rem;
+    margin: 0 2rem;
+    margin-top: 2.5rem;
+    padding: 0 1rem;
+  }
+}
+
+[data-theme="dark"] .CountryInfo__BackBtn {
+  background-color: $dm-elements;
+  color: $dm-text;
+  border-radius: 6px;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+
+  @media screen and (max-width: $mobile) {
+    border-radius: 2px;
+  }
+}
+
+.CountryInfo__Image {
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+
+  @media screen and (max-width: $mobile) {
+    width: 20rem;
+  }
+}
+
+.CountryInfo__MainRight {
+  width: 38rem;
+
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+    padding: 0 1rem;
+    margin-top: 2.75rem;
+  }
+}
+
+.CountryInfo__Name {
+  @include heading1;
+  margin-bottom: 1.4375rem;
+}
+
+.CountryInfo__Details {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
+}
+
+.CountryInfo__DetailSection {
+  width: 50%;
+
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+  }
+
+  &:last-child {
+    @media screen and (max-width: $mobile) {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.CountryInfo__FieldName {
+  font-weight: 600;
+}
+
+.CountryInfo__Borders {
+  display: flex;
+  align-items: center;
+  margin-top: 1.8rem;
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  p {
+    font-weight: 600;
+    margin-right: 1rem;
+
+    @media screen and (max-width: $mobile) {
+      margin: 0;
+    }
+  }
+}
+
+.CountryInfo__BorderList {
+  display: flex;
+  padding: 0;
+  list-style: none;
+
+  @media screen and (max-width: $mobile) {
+    margin-top: 1rem;
+  }
+}
+
+.CountryInfo__BorderItem {
+  @include justify-center;
+  background-color: $lm-elements;
+  width: 6rem;
+  height: 1.75rem;
+  @include input1;
+  margin-right: 0.6rem;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+  border-radius: 2px;
+}
+
+[data-theme="dark"] .CountryInfo__BorderItem {
+  background-color: $dm-elements;
+}
