@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
+import { IoChevronDown } from "react-icons/io5";
 
 import { TRegion } from "../../types/country";
 
@@ -26,7 +26,7 @@ const Filter = ({ selectRegion, region }: IFilterProps) => {
     <div className={classes.Filter} role="listbox">
       <div className={classes.Filter__select} onClick={() => toggleDropdown()}>
         <p className={classes.Filter__selectValue}>{region !== "All" ? region : "Filter by Region"}</p>
-        <FaAngleDown className={classes.Filter__icon} />
+        <IoChevronDown className={classes.Filter__icon} />
       </div>
       {showDropdown && (
         <ul className={classes.Filter__dropdown}>
