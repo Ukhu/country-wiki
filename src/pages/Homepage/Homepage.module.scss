@@ -7,9 +7,10 @@
 }
 
 .Homepage__Countries {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 16.5rem);
   justify-content: space-between;
-  flex-wrap: wrap;
   margin: 0 5rem;
   margin-bottom: 3rem;
 }
+

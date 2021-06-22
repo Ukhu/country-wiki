@@ -1,7 +1,7 @@
 import React from "react";
 
 import NotfoundLogo from "../../images/404.svg";
-import ErrorLogo from "../../images/something-wrong.svg";
+import ErrorLogo from "../../images/error.svg";
 
 import classes from "./StatusIndicator.module.scss";
 
@@ -10,7 +10,6 @@ interface IStatusIndicatorProps {
 }
 
 const StatusIndicator = ({ type }: IStatusIndicatorProps) => {
-  console.log(type);
   return (
     <div className={classes.StatusIndicator}>
       {type === "not found" ? (

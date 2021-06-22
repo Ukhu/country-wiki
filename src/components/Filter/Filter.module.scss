@@ -47,6 +47,7 @@
   border-radius: 4px;
 }
 
-.Filter__item:not(:last-child) {
-  margin-bottom: 0.8rem;
+.Filter__item {
+  cursor: pointer;
+  padding: 0.2rem 0;
 }

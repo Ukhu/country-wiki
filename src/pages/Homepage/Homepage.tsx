@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import classes from "./Homepage.module.scss";
+import { ICountry, TRegion } from "../../types/country";
 import api from "../../utils/api";
-import { ICountry } from "../../types/country";
+import { getCountries } from '../../utils/countries'
 
 import Header from "../../components/Header";
 import Search from "../../components/Search";
@@ -10,11 +10,15 @@ import Filter from "../../components/Filter";
 import CountryCard from "../../components/CountryCard";
 import StatusIndicator from "../../components/StatusIndicator";
 
+import classes from "./Homepage.module.scss";
+
 type TErrorType = "not found" | "error";
 
 const Homepage = () => {
   const [countries, setCountries] = useState<ICountry[]>([]);
   const [errorType, setErrorType] = useState<TErrorType | null>(null);
+  const [query, setQuery] = useState("")
+  const [region, setRegion] = useState<TRegion>("All")
 
   React.useEffect(() => {
     const fetchCountries = async () => {
@@ -30,18 +34,27 @@ const Homepage = () => {
     fetchCountries();
   }, []);
 
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {value} = event.target
+    setQuery(value)
+  }
+
+  const selectRegion = (region: TRegion) => {
+    setRegion(region)
+  }
+
   return (
     <div>
       <Header />
       <div className={classes.Homepage__Toolbar}>
-        <Search />
-        <Filter />
+        <Search handleSearch={handleSearch} query={query} />
+        <Filter selectRegion={selectRegion} region={region} />
       </div>
       {errorType ? (
         <StatusIndicator type={errorType} />
       ) : (
         <div className={classes.Homepage__Countries}>
-          {countries.map((country) => (
+          {getCountries(countries, region, query).map((country) => (
             <CountryCard key={country.name} country={country} />
           ))}
         </div>
@@ -49,5 +62,6 @@ const Homepage = () => {
     </div>
   );
 };
+
 
 export default Homepage;
