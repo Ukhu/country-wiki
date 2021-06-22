@@ -3,7 +3,7 @@
 
 .CountryCard {
   width: 16.5rem;
-  background: #ffffff;
+  background: $lm-elements;
   border-radius: 4px;
   flex-shrink: 0;
   margin-top: 3rem;
@@ -12,6 +12,11 @@
   @media screen and (max-width: $mobile) {
     margin-top: 2.5rem;
   }
+}
+
+[data-theme="dark"] .CountryCard {
+  background-color: $dm-elements;
+  color: $dm-text;
 }
 
 .CountryCard__Image {
