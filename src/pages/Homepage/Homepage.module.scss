@@ -1,16 +1,27 @@
-@import "../../sass/mixins";
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
 
 .Homepage__Toolbar {
   @include justify-between;
-  margin: 0 5rem;
+  @include container;
   margin-top: 3rem;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $mobile) {
+    margin-top: 1.5rem;
+  }
 }
 
 .Homepage__Countries {
   display: grid;
   grid-template-columns: repeat(auto-fill, 16.5rem);
   justify-content: space-between;
-  margin: 0 5rem;
+  @include container;
   margin-bottom: 3rem;
+
+  @media screen and (max-width: $mobile) {
+    justify-content: center;
+
+  }
 }
 

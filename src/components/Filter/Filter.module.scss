@@ -1,11 +1,16 @@
 @import "../../sass/_mixins.scss";
 @import "../../sass/_typography.scss";
+@import "../../sass/_variables.scss";
 
 .Filter {
   display: flex;
   position: relative;
   flex-direction: column;
   width: 12.25rem;
+
+  @media screen and (max-width: $mobile) {
+    margin-top: 1.5rem;
+  }
 }
 
 .Filter__select {
@@ -23,7 +28,7 @@
 .Filter__icon {
   @include justify-center;
   background-color: inherit;
-  font-size: 18px;
+  @include input1;
   flex-grow: 1;
   flex-shrink: 0;
   border-radius: 4px 0 0 4px;
