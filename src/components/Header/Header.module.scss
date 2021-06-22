@@ -1,3 +1,5 @@
+@import "../../sass/_typography.scss";
+
 .Header {
   display: flex;
   justify-content: space-between;
@@ -10,7 +12,7 @@
 }
 
 .Header__Brand {
-  font-size: 24px;
+  @include brand-logo;
   margin: 0;
 }
 
@@ -19,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   color: #111517;
+  @include input2;
   font-weight: 600;
 }
 

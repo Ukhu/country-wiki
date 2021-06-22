@@ -21,7 +21,7 @@ const CountryCard = ({ country }: ICountryCardProps) => {
         <div className={classes.CountryCard__Fields}>
           <p className={classes.CountryCard__FieldItem}>
             <span className={classes.CountryCard__FieldName}>Population:</span>
-            &nbsp;{population}
+            &nbsp;{population.toLocaleString()}
           </p>
           <p className={classes.CountryCard__FieldItem}>
             <span className={classes.CountryCard__FieldName}>Region:</span>

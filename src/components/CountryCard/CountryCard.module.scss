@@ -1,3 +1,5 @@
+@import "../../sass/_typography.scss";
+
 .CountryCard {
   width: 16.5rem;
   background: #ffffff;
@@ -23,9 +25,7 @@
 
 .CountryCard__Name {
   margin: 0;
-  font-size: 1.125rem;
-  font-weight: 800;
-  line-height: 1.625rem;
+  @include heading2;
   margin-bottom: 1rem;
 }
 
@@ -35,7 +35,7 @@
 
 .CountryCard__FieldItem {
   margin: 0;
-  font-size: 0.875rem;
+  @include body2;
   margin-bottom: 0.5rem;
 }
 

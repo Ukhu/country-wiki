@@ -1,0 +1,67 @@
+@import "./_variables.scss";
+
+// country detail
+@mixin body1 {
+  font-size: 1rem;
+  line-height: 2rem;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.875rem;
+  }
+}
+
+// country card
+@mixin body2 {
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+@mixin brand-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 2rem;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+// country detail
+@mixin heading1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 2.75rem;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+  }
+}
+
+// country card
+@mixin heading2 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.625rem;
+}
+
+// search, filter text, and border countries
+@mixin input1 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.75rem;
+  }
+}
+
+// dark mode toggle, back btn
+@mixin input2 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.75rem;
+  }
+}
