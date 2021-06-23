@@ -23,6 +23,16 @@
   margin: 0;
 }
 
+.Header__Link {
+  text-decoration: none;
+  color: $lm-text;
+}
+
+[data-theme="dark"] .Header__Link {
+  background-color: $dm-elements;
+  color: $dm-text;
+}
+
 .Header__Theme {
   display: flex;
   justify-content: space-between;

@@ -13,7 +13,7 @@ const defaultCountry = {
   region: "",
   capital: "",
   flag: "",
-  cioc: "",
+  alpha3Code: "",
   nativeName: "",
   subregion: "",
   currencies: [{ name: "" }],
@@ -40,7 +40,9 @@ const CountryInfo = ({ countries }: ICountryInfoProps) => {
     if (countries.length === 0) {
       fetchSingleCountry();
     } else {
-      const country = countries.filter((country) => country.cioc === id)[0];
+      const country = countries.filter(
+        (country) => country.alpha3Code === id
+      )[0];
       setSelectedCountry(country);
     }
   }, [id, countries]);

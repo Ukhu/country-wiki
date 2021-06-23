@@ -12,7 +12,7 @@ export interface ICountry {
   region: string;
   capital: string;
   flag: string;
-  cioc: string;
+  alpha3Code: string;
   nativeName: string;
   subregion: string;
   currencies: ICurrency[];

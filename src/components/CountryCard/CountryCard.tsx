@@ -11,10 +11,10 @@ interface ICountryCardProps {
 const CountryCard = ({ country }: ICountryCardProps) => {
   const history = useHistory();
 
-  const { name, population, region, capital, flag, cioc } = country;
+  const { name, population, region, capital, flag, alpha3Code } = country;
 
   const selectCountry = () => {
-    history.push(`/countries/${cioc}`);
+    history.push(`/countries/${alpha3Code}`);
   };
 
   return (

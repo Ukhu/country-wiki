@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { IoMoonOutline, IoSunny } from "react-icons/io5";
 
 import classes from "./Header.module.scss";
@@ -19,7 +20,11 @@ const Header = () => {
 
   return (
     <header className={classes.Header}>
-      <h1 className={classes.Header__Brand}>Where in the world?</h1>
+      <h1 className={classes.Header__Brand}>
+        <Link to="/" className={classes.Header__Link}>
+          Where in the world?
+        </Link>
+      </h1>
 
       <div
         className={classes.Header__Theme}
