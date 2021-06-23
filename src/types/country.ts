@@ -18,6 +18,7 @@ export interface ICountry {
   currencies: ICurrency[];
   topLevelDomain: string[];
   languages: ILangauge[];
+  borders: string[];
 }
 
 export type TRegion =

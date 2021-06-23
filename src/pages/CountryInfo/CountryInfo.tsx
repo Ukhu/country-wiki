@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 
 import { ICountry, ILangauge, ICurrency } from "../../types/country";
 import api from "../../utils/api";
@@ -19,6 +19,7 @@ const defaultCountry = {
   currencies: [{ name: "" }],
   topLevelDomain: [""],
   languages: [{ name: "" }],
+  borders: [""],
 };
 
 interface ICountryInfoProps {
@@ -58,6 +59,7 @@ const CountryInfo = ({ countries }: ICountryInfoProps) => {
     currencies,
     topLevelDomain,
     languages,
+    borders,
   } = selectedCountry;
 
   const goBack = () => {
@@ -137,9 +139,16 @@ const CountryInfo = ({ countries }: ICountryInfoProps) => {
           <div className={classes.CountryInfo__Borders}>
             <p>Border Countries:</p>
             <ul className={classes.CountryInfo__BorderList}>
-              <li className={classes.CountryInfo__BorderItem}>France</li>
-              <li className={classes.CountryInfo__BorderItem}>Germany</li>
-              <li className={classes.CountryInfo__BorderItem}>Netherlands</li>
+              {borders.slice(0, 3).map((border) => (
+                <li className={classes.CountryInfo__BorderItem} key={border}>
+                  <Link
+                    to={`/countries/${border}`}
+                    className={classes.CountryInfo__BorderItemLink}
+                  >
+                    {border}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
