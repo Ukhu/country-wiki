@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
 import { ICountry, TRegion } from "../../types/country";
-import api from "../../utils/api";
-import { getCountries } from '../../utils/countries'
+import { getCountries } from "../../utils/countries";
 
-import Header from "../../components/Header";
 import Search from "../../components/Search";
 import Filter from "../../components/Filter";
 import CountryCard from "../../components/CountryCard";
@@ -14,44 +12,32 @@ import classes from "./Homepage.module.scss";
 
 type TErrorType = "not found" | "error";
 
-const Homepage = () => {
-  const [countries, setCountries] = useState<ICountry[]>([]);
-  const [errorType, setErrorType] = useState<TErrorType | null>(null);
-  const [query, setQuery] = useState("")
-  const [region, setRegion] = useState<TRegion>("All")
+interface IHomepageProps {
+  countries: ICountry[];
+  error: TErrorType | null;
+}
 
-  React.useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const fetchedCountries = await api.fetchCountries();
-        fetchedCountries.length === 0
-          ? setErrorType("not found")
-          : setCountries(fetchedCountries);
-      } catch (err) {
-        setErrorType("error");
-      }
-    };
-    fetchCountries();
-  }, []);
+const Homepage = ({ countries, error }: IHomepageProps) => {
+  const [query, setQuery] = useState("");
+  const [region, setRegion] = useState<TRegion>("All");
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const {value} = event.target
-    setQuery(value)
-  }
+    const { value } = event.target;
+    setQuery(value);
+  };
 
   const selectRegion = (region: TRegion) => {
-    setRegion(region)
-  }
+    setRegion(region);
+  };
 
   return (
     <div>
-      <Header />
       <div className={classes.Homepage__Toolbar}>
         <Search handleSearch={handleSearch} query={query} />
         <Filter selectRegion={selectRegion} region={region} />
       </div>
-      {errorType ? (
-        <StatusIndicator type={errorType} />
+      {error ? (
+        <StatusIndicator type={error} />
       ) : (
         <div className={classes.Homepage__Countries}>
           {getCountries(countries, region, query).map((country) => (
@@ -62,6 +48,5 @@ const Homepage = () => {
     </div>
   );
 };
-
 
 export default Homepage;

@@ -1,4 +1,5 @@
 import React, { CSSProperties } from "react";
+import { useHistory } from "react-router-dom";
 
 import { ICountry } from "../../types/country";
 import classes from "./CountryCard.module.scss";
@@ -8,10 +9,21 @@ interface ICountryCardProps {
 }
 
 const CountryCard = ({ country }: ICountryCardProps) => {
-  const { name, population, region, capital, flag } = country;
+  const history = useHistory();
+
+  const { name, population, region, capital, flag, cioc } = country;
+
+  const selectCountry = () => {
+    history.push(`/countries/${cioc}`);
+  };
 
   return (
-    <div className={classes.CountryCard}>
+    <div
+      className={classes.CountryCard}
+      tabIndex={0}
+      onClick={selectCountry}
+      onKeyPress={selectCountry}
+    >
       <div
         className={classes.CountryCard__Image}
         style={{ "--countryFlag": `url(${flag})` } as CSSProperties}

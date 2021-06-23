@@ -5,6 +5,9 @@ const client = axios.create({
 });
 
 const api = {
+  fetchSingleCountry: (code: string) => {
+    return api.get(`alpha/${code}`);
+  },
   fetchCountries: () => {
     return api.get("all");
   },

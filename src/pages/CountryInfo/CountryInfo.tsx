@@ -1,16 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
+import { useHistory, useParams } from "react-router-dom";
 
-import Header from "../../components/Header";
+import { ICountry, ILangauge, ICurrency } from "../../types/country";
+import api from "../../utils/api";
 
 import classes from "./CountryInfo.module.scss";
 
-const CountryInfo = () => {
+const defaultCountry = {
+  name: "",
+  population: 0,
+  region: "",
+  capital: "",
+  flag: "",
+  cioc: "",
+  nativeName: "",
+  subregion: "",
+  currencies: [{ name: "" }],
+  topLevelDomain: [""],
+  languages: [{ name: "" }],
+};
+
+interface ICountryInfoProps {
+  countries: ICountry[];
+}
+
+const CountryInfo = ({ countries }: ICountryInfoProps) => {
+  const history = useHistory();
+  const { id } = useParams<{ id: string }>();
+  const [selectedCountry, setSelectedCountry] =
+    useState<ICountry>(defaultCountry);
+
+  React.useEffect(() => {
+    const fetchSingleCountry = async () => {
+      const country = await api.fetchSingleCountry(id);
+      setSelectedCountry(country);
+    };
+
+    if (countries.length === 0) {
+      fetchSingleCountry();
+    } else {
+      const country = countries.filter((country) => country.cioc === id)[0];
+      setSelectedCountry(country);
+    }
+  }, [id, countries]);
+
+  const {
+    name,
+    population,
+    region,
+    capital,
+    flag,
+    nativeName,
+    subregion,
+    currencies,
+    topLevelDomain,
+    languages,
+  } = selectedCountry;
+
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <div className={classes.CountryInfo}>
-      <Header />
-
-      <button className={classes.CountryInfo__BackBtn}>
+      <button className={classes.CountryInfo__BackBtn} onClick={goBack}>
         <IoArrowBack />
         Back
       </button>
@@ -18,13 +72,13 @@ const CountryInfo = () => {
       <section className={classes.CountryInfo__Main}>
         <img
           className={classes.CountryInfo__Image}
-          src="https://restcountries.eu/data/bel.svg"
+          src={flag}
           alt="Country flag"
           width={560}
         />
 
         <div className={classes.CountryInfo__MainRight}>
-          <h1 className={classes.CountryInfo__Name}>Belgium</h1>
+          <h1 className={classes.CountryInfo__Name}>{name}</h1>
 
           <div className={classes.CountryInfo__Details}>
             <div className={classes.CountryInfo__DetailSection}>
@@ -32,27 +86,27 @@ const CountryInfo = () => {
                 <span className={classes.CountryInfo__FieldName}>
                   Native Name:
                 </span>
-                &nbsp;Belgie
+                &nbsp;{nativeName}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>
                   Population:
                 </span>
-                &nbsp;{(11319511).toLocaleString()}
+                &nbsp;{population.toLocaleString()}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>Region:</span>
-                &nbsp;Europe
+                &nbsp;{region}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>
                   Sub Region:
                 </span>
-                &nbsp;Western Europe
+                &nbsp;{subregion}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>Capital:</span>
-                &nbsp;Brussels
+                &nbsp;{capital}
               </p>
             </div>
 
@@ -61,19 +115,19 @@ const CountryInfo = () => {
                 <span className={classes.CountryInfo__FieldName}>
                   Top Level Domain:
                 </span>
-                &nbsp;.be
+                &nbsp;{topLevelDomain}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>
                   Currency:
                 </span>
-                &nbsp;Euro
+                &nbsp;{getItems(currencies)}
               </p>
               <p>
                 <span className={classes.CountryInfo__FieldName}>
                   Languages:
                 </span>
-                &nbsp;Dutch, French, German
+                &nbsp;{getItems(languages)}
               </p>
             </div>
           </div>
@@ -90,6 +144,10 @@ const CountryInfo = () => {
       </section>
     </div>
   );
+};
+
+const getItems = (items: ILangauge[] | ICurrency[]) => {
+  return items.map((items) => items.name).join(", ");
 };
 
 export default CountryInfo;
