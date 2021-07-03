@@ -1,0 +1,47 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_typography.scss";
+@import "../../sass/_variables.scss";
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $lm-elements;
+  color: $lm-text;
+  height: 5rem;
+  @include h-container;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+}
+
+[data-theme="dark"] .Header {
+  background-color: $dm-elements;
+  color: $dm-text;
+}
+
+.Header__Brand {
+  @include brand-logo;
+  margin: 0;
+}
+
+.Header__Link {
+  text-decoration: none;
+  color: $lm-text;
+}
+
+[data-theme="dark"] .Header__Link {
+  background-color: $dm-elements;
+  color: $dm-text;
+}
+
+.Header__Theme {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include input2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.Header__Icon {
+  margin-right: 0.4rem;
+}

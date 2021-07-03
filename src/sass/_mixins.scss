@@ -1,0 +1,29 @@
+@import "./_variables.scss";
+
+@mixin justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin container {
+  margin: 0 5rem;
+
+  @media screen and (max-width: $mobile) {
+    margin: 0 1rem;
+  }
+}
+
+@mixin h-container {
+  padding: 0 5rem;
+
+  @media screen and (max-width: $mobile) {
+    padding: 0 1rem;
+  }
+}

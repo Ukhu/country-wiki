@@ -1,0 +1,55 @@
+@import "../../sass/_typography.scss";
+@import "../../sass/_variables.scss";
+
+.CountryCard {
+  width: 16.5rem;
+  background: $lm-elements;
+  cursor: pointer;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 3rem;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+
+  @media screen and (max-width: $mobile) {
+    margin-top: 2.5rem;
+  }
+}
+
+[data-theme="dark"] .CountryCard {
+  background-color: $dm-elements;
+  color: $dm-text;
+}
+
+.CountryCard__Image {
+  width: 100%;
+  background-image: var(--countryFlag);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 56.25%; // 16:9 aspect ratio
+  border-radius: 4px 4px 0 0;
+}
+
+.CountryCard__Content {
+  padding: 1.8rem 1.5rem;
+}
+
+.CountryCard__Name {
+  margin: 0;
+  @include heading2;
+  margin-bottom: 1rem;
+}
+
+.CountryCard__Fields {
+  margin-bottom: 1rem;
+}
+
+.CountryCard__FieldItem {
+  margin: 0;
+  @include body2;
+  margin-bottom: 0.5rem;
+}
+
+.CountryCard__FieldName {
+  font-weight: 600;
+}
